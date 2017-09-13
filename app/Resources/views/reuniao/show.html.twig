@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Reuniao - {{ reuniao.nome }}</h3>
+  </div>
+  <div class="panel-body">
+        <div class="col-md-12">{{ reuniao.descricao }}</div>
+        <div class="col-md-12"><b>Local:</b> {{ reuniao.local }}</div>
+        <div class="col-md-12">
+            <form id="form-add-pessoa" method="POST">
+                <div class="col-md-12">
+                    
+                <label for="pessoa_nome">Nome</label>
+                <input type="text" name="pessoa_nome" class="form-control" id="pessoa_nome"/>
+                <input type="button" name="Adicionar" onclick="$().reuniaoAddPessoa('{{ reuniao.id }}')" class="btn btn-primary" value="Vincular">
+                </div>
+                <div class="clear"></div>
+            </form>
+            <table class="table" id="reuniao-detalhes-listagem">
+                <thead>
+                    <tr>
+                        <th></th>
+                        {% for data in reuniao.datas %}
+                        <th>{{ data.data|date("d/m/Y") }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pessoa in reuniao.pessoas %}
+                        {% set variaveis = {'id': pessoa.id, 'datas': reuniao.datas } %}
+                        {% include 'reuniaopessoa/new.html.twig' with variaveis %}
+              
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a class="btn btn-primary btn-voltar" href="{{ path('reuniao_index') }}">Voltar</a>
+  </div>
+</div>
+ 
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/reuniao.js') }}"></script>
+{% endblock %}

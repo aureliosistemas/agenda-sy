@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reuniaopessoa - Excluir</h1>
+    <hr/>
+    {{ form_start(delete_form) }}
+    <table class="table table-bordered table-responsive">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td class="default">{{ reuniaoPessoa.id }}</td>
+            </tr>
+            <tr>
+                <th>Nome</th>
+                <td class="default">{{ reuniaoPessoa.nome }}</td>
+            </tr>
+            <tr>
+                <th>Reuniao</th>
+                <td class="default">{{ reuniaoPessoa.reuniao }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <input class="btn btn-danger btn-excluir" type="submit" value="Confirmar">
+        <a class="btn btn-primary btn-voltar" href="{{ path('reuniaopessoa_index') }}">Voltar</a>
+    </div>
+    {{ form_end(delete_form) }}
+{% endblock %}

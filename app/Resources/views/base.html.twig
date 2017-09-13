@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Aurelio{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+        <link rel="stylesheet" href="{{ asset('jquery-ui/jquery-ui.css') }}">
+
+
+        <script src="{{ asset('js/jquery-3.2.1.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('jquery-ui/jquery-ui.js') }}"></script>
+        <script src="{{ asset('jquery-ui/i18n/datepicker-pt-BR.js') }}"></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <nav id="main-menu">
+                <div class="btn-group" role="group">
+                    <a href="{{ path('reuniao_index') }}" class="btn btn-dark">Reuniões</a>
+                </div>
+            </nav>
+            <div class="row">
+                    <ol class="breadcrumb">
+                     
+                    </ol>
+                <div class="col-md-12">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        {% block javascripts %}{% endblock %}
+        <script>
+        (function($){
+            // configure the bootstrap datepicker
+        $.datepicker.regional[ 'pt-BR' ];
+            $('.js-datepicker').datepicker({
+                showAnim: 'clip',
+                format: 'dd-mm-yyyy'
+            });
+            $( "#datepicker" ).datepicker( "option",  $.datepicker.regional[ 'pt-BR' ]);
+    
+        })(jQuery);
+        
+</script>
+    </body>
+</html>

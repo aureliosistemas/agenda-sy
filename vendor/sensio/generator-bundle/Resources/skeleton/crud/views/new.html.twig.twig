@@ -1,0 +1,20 @@
+{% block extends %}
+{{ "{% extends 'base.html.twig' %}" }}
+{% endblock extends %}
+
+{% block body %}
+{{ "{% block body %}" }}
+    <h1>{{ entity_singularized|capitalize }} - Novo</h1>
+
+    {{ '{{ form_start(form) }}' }}
+        {{ '{{ form_widget(form) }}' }}
+        <div class="btn-group" role="group">
+            <input class="btn btn-success btn-salvar" type="submit" value="Salvar" />
+            {% set hide_edit, hide_delete = true, true %}
+            {{ include('crud/views/others/record_actions.html.twig.twig') -}}
+        </div>
+    {{ '{{ form_end(form) }}' }}
+
+
+{{ "{% endblock %}" }}
+{% endblock body %}

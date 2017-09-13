@@ -1,0 +1,7 @@
+    <a class="btn btn-primary btn-voltar" href="{{ "{{ path('" ~ route_name_prefix ~ "_index') }}" }}">Back to the list</a>
+    {%- if ('edit' in actions) and (not hide_edit) %}
+        <a class="btn btn-primary btn-editar" href="{{ "{{ path('" ~ route_name_prefix ~ "_edit', { '"~ identifier ~"': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}">Editar</a>
+    {%- endif %}
+    {%- if ('delete' in actions) and (not hide_delete) %}
+        <a class="btn btn-danger btn-excluir" href="{{ "{{ path('" ~ route_name_prefix ~ "_show', { '"~ identifier ~"': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}">Excluir</a>
+    {%- endif %}

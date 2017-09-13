@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Reuniao - Dias</h3>
+  </div>
+  <div class="panel-body">
+    {{ form_start(form) }}
+     {{ form_widget(form) }}
+     <input class="btn btn-success btn-salvar-inline" type="submit" value="Inserir" />
+     <div class="clear"></div>
+    {{ form_end(form) }}
+    <hr/>
+    <div class="row">
+     {% for reuniaoDium in reuniaoDias %}
+        <div class="col-md-1 reuniao-dia-item">
+            {{ reuniaoDium.data|date('d/m/Y') }}
+            <a href="{{ path('reuniaodia_delete', { 'id': reuniaoDium.id }) }}">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        </a>
+        </div>
+        {% endfor %}
+        <div class="col-md-12">
+          <div class="clear"></div>
+          <hr />
+          <a class="btn btn-primary btn-voltar" href="{{ path('reuniao_index') }}">voltar</a>
+        </div>
+    </div>
+       
+    </div>
+{% endblock %}

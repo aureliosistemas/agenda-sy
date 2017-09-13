@@ -1,0 +1,55 @@
+{% block extends %}
+{{ "{% extends 'base.html.twig' %}" }}
+{% endblock extends %}
+
+{% block body %}
+{{ "{% block body %}" }}
+    <h1>{{ entity_singularized|capitalize }} - Excluir</h1>
+    <hr/>
+    {{ '{{ form_start(delete_form) }}' }}
+    <table class="table table-bordered table-responsive">
+        <tbody>
+        {%- for field, metadata in fields %}
+
+            <tr>
+                <th>{{ field|capitalize }}</th>
+
+            {%- if metadata.type in ['datetime'] %}
+
+                <td class="datetime">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+
+            {%- elseif metadata.type in ['date'] %}
+
+                <td class="date">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d\') }}{% endif %}' }}</td>
+
+            {%- elseif metadata.type in ['time'] %}
+
+                <td class="time">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'H:i:s\') }}{% endif %}' }}</td>
+
+            {%- elseif metadata.type in ['array'] %}
+
+                <td class="array">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|join(\', \') }}{% endif %}' }}</td>
+
+            {%- elseif metadata.type in ['boolean'] %}
+
+                <td class="boolean">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}Yes{% else %}No{% endif %}' }}</td>
+
+            {%- else %}
+
+                <td class="default">{{ '{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+
+            {%- endif %}
+
+            </tr>
+
+        {%- endfor %}
+
+        </tbody>
+    </table>
+    <div>
+        <input class="btn btn-danger btn-excluir" type="submit" value="Confirmar">
+        <a class="btn btn-primary btn-voltar" href="{{ "{{ path('" ~ route_name_prefix ~ "_index') }}" }}">Voltar</a>
+    </div>
+    {{ '{{ form_end(delete_form) }}' }}
+{{ "{% endblock %}" }}
+{% endblock body %}

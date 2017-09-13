@@ -1,0 +1,6 @@
+<tr>
+	<td>{{ nome }}</td>
+    {% for data in datas %}
+    <td><input type="checkbox" name="dia[]" data-pessoa='{{ id }}' value="{{ data.id }}" /></td>
+    {% endfor %}
+</tr>

@@ -1,0 +1,85 @@
+#main-menu { background-color: #721c24;     margin: 0 -15px;}
+form[method="post"] {  padding: 10px; background-color: #e0e0e0; border-radius: 8px; border: 1px solid #848484;}
+select.readonly {    background: #eee; pointer-events: none; touch-action: none; }
+
+.btn-salvar-inline {
+	float: left;
+}
+
+.js-datepicker {
+	width: 130px;
+}
+#aurelio_agendabundle_reuniaodia
+{
+	    width: 90%;
+    float: left;
+}
+#aurelio_agendabundle_reuniaodia_data_time { display: none; }
+#form-add-pessoa label,
+#aurelio_agendabundle_reuniaodia label {
+	float: left;
+	padding: 8px;
+}
+
+#form-add-pessoa input[type='text'] {
+	width: 300px;
+	float: left;
+}
+
+#form-add-pessoa input[type='text'] {
+	float: left;
+}
+
+.clear {
+	clear: both;
+}
+
+.form-group {
+	margin-bottom: 0;
+}
+
+.reuniao-dia-item a {
+	color: red;
+    padding-left: 4px;
+    border-left: 1px solid red;
+    margin-left: 4px;
+}
+
+.reuniao-dia-item {
+	border: 1px solid;
+	border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+#reuniao-detalhes-listagem th:first-child {
+	min-width: 150px;
+}
+
+.btn-dark {
+  color: #fff;
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+.btn-dark:hover {
+  color: #fff;
+  background-color: #23272b;
+  border-color: #1d2124;
+}
+
+.btn-dark:focus, .btn-dark.focus {
+  box-shadow: 0 0 0 3px rgba(52, 58, 64, 0.5);
+}
+
+.btn-dark.disabled, .btn-dark:disabled {
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+.btn-dark:active, .btn-dark.active,
+.show > .btn-dark.dropdown-toggle {
+  background-color: #23272b;
+  background-image: none;
+  border-color: #1d2124;
+}

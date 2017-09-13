@@ -1,0 +1,16 @@
+<tr>
+	<td>{{ pessoa.nome }}</td>
+    {% for data in datas %}
+    <td>
+    	<input 
+    		type="checkbox" 
+    		onclick="$().reuniaoAddPessoaDia({{ reuniao.id }}, {{ id }});" 
+    		name="dia[]" 
+    		data-pessoa='{{ id }}' 
+    		{% if data.id in pessoa.dias %}
+    			checked="checked" 
+    		{% endif %}
+    		value="{{ data.id }}" />
+    </td>
+    {% endfor %}
+</tr>

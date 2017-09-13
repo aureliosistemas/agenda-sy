@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <h3 class="col-md-12">Reuniaopessoas  </h3>
+    </div>
+
+
+    <table class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Reuniao</th>
+                <th width="60px"></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reuniaoPessoa in reuniaoPessoas %}
+            <tr>
+                <td class="primary">{{ reuniaoPessoa.id }}</td>
+                <td>{{ reuniaoPessoa.nome }}</td>
+                <td>{{ reuniaoPessoa.reuniao }}</td>
+                <td>
+                    <div class="btn-group" role="group">                            <a class="btn btn-primary" href="{{ path('reuniaopessoa_show', { 'id': reuniaoPessoa.id }) }}">show</a>                            <a class="btn btn-primary" href="{{ path('reuniaopessoa_edit', { 'id': reuniaoPessoa.id }) }}">edit</a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
